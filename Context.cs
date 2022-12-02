@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+/*using System.Linq;*/
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,13 +12,15 @@ namespace EfTutor
     {
         public Context() 
         {
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
+           /* Database.EnsureDeleted();
+            Database.EnsureCreated();*/
+           Database.Migrate();//автоматом накатить миграцию при запуске
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(@"host=192.168.50.253;port=5432;database=db;username=postgres;password=Vhhvze05042002");
+            optionsBuilder.UseNpgsql(@"host=localhost;port=5432;database=db;username=postgres;password=Vhhvze05042002")
+                .LogTo(Console.WriteLine);//логгирование
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,6 +36,17 @@ namespace EfTutor
                 .HasMany(p => p.Roles).WithMany(r => r.Persons)
                 .UsingEntity(j => j.ToTable("PersonToRole"));
 
+            modelBuilder.Entity<Person>().HasData(new
+            Person
+            {
+                Id= 1,
+                Name="Vasya",
+                Surename="Pupkin",
+                CurrentDepartmentId=1,
+                Age=17,
+
+            });//не забыть Add-migration и дать айдишник, даже если он auto
+
             
         }
 
@@ -41,5 +54,6 @@ namespace EfTutor
         public DbSet<Department> Departments { get; set; }
         public DbSet<Partner> Partners { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<Address> Addresses { get; set; }
     }
 }

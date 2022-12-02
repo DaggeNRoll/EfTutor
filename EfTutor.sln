@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfTutor", "EfTutor.csproj", "{234182C1-1474-479A-A664-134F61A3F1EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EfTutor", "EfTutor.csproj", "{234182C1-1474-479A-A664-134F61A3F1EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EfTutorDbFirst", "..\EfTutorDbFirst\EfTutorDbFirst.csproj", "{811BAB67-70CA-4D75-9A62-C22448D0B921}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{234182C1-1474-479A-A664-134F61A3F1EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{234182C1-1474-479A-A664-134F61A3F1EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{234182C1-1474-479A-A664-134F61A3F1EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{811BAB67-70CA-4D75-9A62-C22448D0B921}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{811BAB67-70CA-4D75-9A62-C22448D0B921}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{811BAB67-70CA-4D75-9A62-C22448D0B921}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{811BAB67-70CA-4D75-9A62-C22448D0B921}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
