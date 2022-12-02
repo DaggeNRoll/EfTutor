@@ -19,5 +19,6 @@ namespace EfTutor.Entities
         
         public Partner Partner { get; set; }
         public Address Address { get; set; }
+        public ICollection<Role> Roles { get; set; }
     }
 }

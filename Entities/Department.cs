@@ -17,7 +17,7 @@ namespace EfTutor.Entities
         [Required]
         public string Name { get; set; }
 
-        [NotMapped]
-        public int NotMapped { get; set; }
+        /*[NotMapped]
+        public int NotMapped { get; set; }*/
     }
 }

@@ -18,7 +18,7 @@ namespace EfTutor
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql(@"host=localhost;port=5432;database=db;username=postgres;password=Vhhvze05042002");
+            optionsBuilder.UseNpgsql(@"host=192.168.50.253;port=5432;database=db;username=postgres;password=Vhhvze05042002");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -30,6 +30,9 @@ namespace EfTutor
 
             modelBuilder.Entity<Person>()
                 .HasOne(p => p.Address).WithOne(a => a.Person);
+            modelBuilder.Entity<Person>()
+                .HasMany(p => p.Roles).WithMany(r => r.Persons)
+                .UsingEntity(j => j.ToTable("PersonToRole"));
 
             
         }
@@ -37,5 +40,6 @@ namespace EfTutor
         public DbSet<Person> Persons { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Partner> Partners { get; set; }
+        public DbSet<Role> Roles { get; set; }
     }
 }
